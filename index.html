@@ -3,94 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission Control - Hidden Terminal</title>
+    <title>Mission Control - Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="mission-styles.css">
-    <style>
-        .restricted-panel {
-            border: 2px solid var(--neon-amber);
-            box-shadow: 0 0 20px rgba(255, 179, 0, 0.2);
-        }
-        #result-display {
-            margin-top: 30px;
-            padding: 20px;
-            display: none;
-            border-radius: 4px;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-        .access-granted {
-            background: rgba(0, 255, 102, 0.1);
-            border: 1px solid #00ff66;
-            color: #00ff66;
-        }
-        .access-denied {
-            background: rgba(255, 51, 51, 0.1);
-            border: 1px solid #ff3333;
-            color: #ff3333;
-        }
-        .flag-text {
-            font-size: 2rem;
-            margin-top: 15px;
-            font-weight: bold;
-            text-shadow: 0 0 10px #00ff66;
-        }
-    </style>
 </head>
 <body>
-    <div class="container restricted-panel">
-        <div class="page-status" style="color: var(--neon-amber);">RESTRICTED_ACCESS // ADM_TERMINAL_01</div>
-        <h1 style="color: var(--neon-amber);">Mission Control Access</h1>
+    <nav class="nav-bar">
+        <a href="mission-home.html" class="nav-link">Home</a>
+        <a href="mission-crew.html" class="nav-link">Crew</a>
+        <a href="mission-logs.html" class="nav-link">Logs</a>
+        <a href="mission-systems.html" class="nav-link">Systems</a>
+    </nav>
+
+    <div class="container text-center">
+        <div class="page-status">SYSTEM_STATUS: ONLINE // ORBITAL_DECAY: 0.04%</div>
+        <h1>Endurance Station</h1>
         
         <p>
-            Access to mission control requires full authentication key. This station is under high-security lockdown due to the local gravitational anomaly.
+            Welcome to the automated interface for Endurance Station. We are currently maintaining a stable orbit above the accretion disk. Long-range telemetry indicates that a primary anomaly detected near event_horizon stasis fields is disrupting our standard communication arrays.
         </p>
 
-        <div id="login-form">
-            <input type="password" id="pass-input" class="terminal-input" placeholder="Enter captured fragments..." autocomplete="off">
-            <div class="text-center">
-                <button class="btn" onclick="validateKey()">Authenticate</button>
-            </div>
-        </div>
-
-        <div id="result-display"></div>
+        <p>
+            Please use the internal navigation links to review mission personnel data, operational logs, and station system health. Note that administrative functions are currently restricted to authorized commanders only.
+        </p>
 
         <div class="hint-box">
-            <a href="mission-home.html" style="color: #445566; text-decoration: none;">Return to Public Terminal</a>
+            Authorization key is not stored in one place. Fragments of access are scattered across the system.
         </div>
     </div>
-
-    <script>
-        function validateKey() {
-            const input = document.getElementById('pass-input').value.trim();
-            const result = document.getElementById('result-display');
-            const form = document.getElementById('login-form');
-            
-            // Password logic: event_horizon_override
-            if (input.toLowerCase() === 'event_horizon_override') {
-                result.innerHTML = `
-                    <div class="access-granted">
-                        ACCESS GRANTED<br>
-                        Welcome to Mission Control<br><br>
-                        <div class="flag-text">CSE{accessing_mission_control}</div>
-                    </div>
-                `;
-                result.style.display = 'block';
-                form.style.display = 'none';
-            } else {
-                result.innerHTML = `
-                    <div class="access-denied">
-                        ACCESS DENIED<br>
-                        Invalid Authentication Key.
-                    </div>
-                `;
-                result.style.display = 'block';
-                // Reset display after a few seconds
-                setTimeout(() => {
-                    result.style.display = 'none';
-                }, 3000);
-            }
-        }
-    </script>
 </body>
 </html>

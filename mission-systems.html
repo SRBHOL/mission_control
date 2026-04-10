@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control - Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mission-styles.css">
+    <style>
+        .system-status {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid rgba(0, 229, 255, 0.1);
+            padding: 10px 15px;
+            margin: 10px 0;
+        }
+        .status-ok { color: #00ff66; }
+        .status-warn { color: var(--neon-amber); }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="mission-home.html" class="nav-link">Home</a>
+        <a href="mission-crew.html" class="nav-link">Crew</a>
+        <a href="mission-logs.html" class="nav-link">Logs</a>
+        <a href="mission-systems.html" class="nav-link">Systems</a>
+    </nav>
+
+    <div class="container">
+        <div class="page-status">ENG_CMD // CORE_TEMP: 4402K</div>
+        <h1>System Diagnostics</h1>
+        
+        <p>Station systems are operating under high gravitational stress. Drive core response unstable as local tidal forces increase.</p>
+
+        <div class="system-status">
+            <span>Hull Integrity</span>
+            <span class="status-ok">99.2% // NOMINAL</span>
+        </div>
+        <div class="system-status">
+            <span>Engine Reactor</span>
+            <span class="status-ok">STABLE // OUTPUT: 1.2GW</span>
+        </div>
+        <div class="system-status">
+            <span>Life Support</span>
+            <span class="status-ok">ACTIVE // SECTORS: ALL</span>
+        </div>
+        <div class="system-status">
+            <span>Proximity Radar</span>
+            <span class="status-warn">INTERFERENCE // RANGE: 4km</span>
+        </div>
+        <div class="system-status">
+            <span>External ride-along sensors</span>
+            <span class="status-warn">OFFLINE // SIGNAL: LOST</span>
+        </div>
+
+        <p>Engineering Note: Automated docking guides have been disabled to prevent accidental trajectory drift during high-G maneuvers.</p>
+
+        <div class="hint-box">
+            Authorization fragments are scattered across the system.
+        </div>
+    </div>
+</body>
+</html>
